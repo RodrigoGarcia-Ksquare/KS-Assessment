@@ -7,6 +7,8 @@ export default class SearchContainer extends LightningElement {
 
     @api showSearchContainer(){
         this.isShowContainer = true;
+        // const container = this.template.querySelector("c-fetch-contacts");
+        // container.connectedCallback();
     }
 
     closeSearchContainer(){
