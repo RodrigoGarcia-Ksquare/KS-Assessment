@@ -1,0 +1,23 @@
+<template>
+    <div>
+
+        <p>Contact Search</p>
+
+        <!-- CONTACTS DATA DISPLAY -->
+        <template if:true={data}>
+
+            <lightning-datatable
+                key-field="id"
+                data={data}
+                hide-checkbox-column="true"
+                columns={columns}
+                onrowaction={contactSelected}>
+           </lightning-datatable>
+
+        </template>
+
+        <!-- SELECTED CONTACT INFORMATION DISPLAY -->
+
+
+    </div>
+</template>
