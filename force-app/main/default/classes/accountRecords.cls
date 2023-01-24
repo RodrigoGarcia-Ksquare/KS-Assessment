@@ -6,18 +6,28 @@ public with sharing class accountRecords {
         String accId = string.escapeSingleQuotes(acctId);
         String query;
         
-        if (accId != '') {
             query = 'SELECT Id, Name, Email, Phone, Title'
     			+' FROM Contact'
-    			+' WHERE AccountId =\'' +accId+'\'';
-        }
+    			+' WHERE AccountId =\'' +accId+'\''
+                +' ORDER BY Name';
+        
         system.debug(Database.query( query ));
-        // else {
-        //     query = 'SELECT Id, Name, Email, Phone, Title'
-    	// 		+' FROM Contact'
-    	// 		+' WHERE AccountId =\'' +accId+'\''
-        //         +' ORDER BY Name';
-        // }
         return Database.query( query );
+    }
+
+    @AuraEnabled
+    public static List<Contact> getContactDetail(String cntId){
+        try {
+            String contactId = string.escapeSingleQuotes(cntId);
+            String query;
+
+                query = 'SELECT Id, Name, Email, Phone'
+                    +' FROM Contact'
+                    +' WHERE AccountId =\'' +accId+'\''
+                    +' AND Id =\'' +conId+'\'';
+
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
     }
 }
