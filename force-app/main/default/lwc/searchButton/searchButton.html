@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Search Contacts" icon-name="action:preview">
+        <div>
+            <lightning-button label="Search Contacts" onclick={handlerSearchContainer}></lightning-button>
+            <h1>Record id {recordId}</h1>
+            <c-search-container accountid={recordId}></c-search-container>
+        </div>
+    </lightning-card>
+</template>
