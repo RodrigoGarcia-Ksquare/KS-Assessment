@@ -4,31 +4,17 @@
         <p>Contact Search</p>
     </div>
 
-    <div class="slds-grid slds-wrap">
+    <div class="slds-grid slds-wrap" style="max-height: 250px;">
 
         <!-- CONTACTS DATA DISPLAY -->
-        <div class="slds-table_striped slds-table_bordered slds-table_col-bordered slds-size_6-of-8">
-            <template if:true={data}>
-
-                <lightning-datatable
-                    key-field="id"
-                    data={data}
-                    hide-checkbox-column="true"
-                    columns={columns}
-                    onrowaction={contactSelected}>
-               </lightning-datatable>
-    
-            </template>
+        <div class="slds-table_striped slds-table_bordered slds-table_col-bordered slds-size_6-of-8" style="height: 200px;">
+            <c-fetch-contacts-datatable accountid={accountid} onsendcontid={handleSearchedContact}></c-fetch-contacts-datatable>
         </div>
 
         <!-- SELECTED CONTACT INFORMATION DISPLAY -->
         <div class="slds-size_2-of-8">
             <template if:true={displayinfo}>
-                <div class="slds-p-bottom_x-small">{name}</div>
-                <div class="slds-p-bottom_x-small">{phone}</div>
-                <div class="slds-p-bottom_x-small">
-                    <lightning-formatted-email value={email} hide-icon></lightning-formatted-email>
-                </div>
+                <c-fetch-contacts-detail contactid={contactid}></c-fetch-contacts-detail>
             </template>
         </div>
 
