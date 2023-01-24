@@ -1,23 +1,36 @@
 <template>
-    <div>
 
+    <div>
         <p>Contact Search</p>
+    </div>
+
+    <div class="slds-grid slds-wrap">
 
         <!-- CONTACTS DATA DISPLAY -->
-        <template if:true={data}>
+        <div class="slds-table_striped slds-table_bordered slds-table_col-bordered slds-size_6-of-8">
+            <template if:true={data}>
 
-            <lightning-datatable
-                key-field="id"
-                data={data}
-                hide-checkbox-column="true"
-                columns={columns}
-                onrowaction={contactSelected}>
-           </lightning-datatable>
-
-        </template>
+                <lightning-datatable
+                    key-field="id"
+                    data={data}
+                    hide-checkbox-column="true"
+                    columns={columns}
+                    onrowaction={contactSelected}>
+               </lightning-datatable>
+    
+            </template>
+        </div>
 
         <!-- SELECTED CONTACT INFORMATION DISPLAY -->
-
+        <div class="slds-size_2-of-8">
+            <template if:true={displayinfo}>
+                <div class="slds-p-bottom_x-small">{name}</div>
+                <div class="slds-p-bottom_x-small">{phone}</div>
+                <div class="slds-p-bottom_x-small">
+                    <lightning-formatted-email value={email} hide-icon></lightning-formatted-email>
+                </div>
+            </template>
+        </div>
 
     </div>
 </template>
