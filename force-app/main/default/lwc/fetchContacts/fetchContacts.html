@@ -1,14 +1,15 @@
 <template>
 
     <div>
-        <p>Contact Search</p>
+        <!-- CONTACTS SEARCH DATA -->
+        <c-contact-search-container accountid={accountid} ></c-contact-search-container>
     </div>
 
     <div class="slds-grid slds-wrap" style="max-height: 250px;">
 
         <!-- CONTACTS DATA DISPLAY -->
         <div class="slds-table_striped slds-table_bordered slds-table_col-bordered slds-size_6-of-8" style="height: 200px;">
-            <c-fetch-contacts-datatable accountid={accountid} onsendcontid={handleSearchedContact}></c-fetch-contacts-datatable>
+            <c-fetch-contacts-datatable accountid={accountid} selectedcontactid={selectedContactId} onsendcontid={handleSearchedContact}></c-fetch-contacts-datatable>
         </div>
 
         <!-- SELECTED CONTACT INFORMATION DISPLAY -->

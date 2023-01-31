@@ -1,8 +1,4 @@
 import { LightningElement, api, wire, track } from 'lwc';
-import { getRecord } from 'lightning/uiRecordApi';
-import getContacts from '@salesforce/apex/accountRecords.getContacts';
-
-
 
 export default class FetchContacts extends LightningElement {
 
@@ -19,4 +15,9 @@ export default class FetchContacts extends LightningElement {
         console.log('padre', this.contactid);
     }
 
+    getSelectedContactId(event){
+        const idFromSearch = event.detail;
+        this.selectedContactId = idFromSearch;
+        console.log('SE DEBIO EVIAR1', this.selectedContactId);
+    }
 }
