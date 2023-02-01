@@ -3,5 +3,8 @@
     "**/node_modules": true,
     "**/bower_components": true,
     "**/.sfdx": true
-  }
+  },
+  "liveServer.settings.root": ""
+  "salesforcedx-vscode-core.show-cli-success-msg": true,
+  "salesforcedx-vscode-core.retrieve-test-code-coverage": true
 }
