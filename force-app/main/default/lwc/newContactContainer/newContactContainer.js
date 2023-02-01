@@ -72,5 +72,6 @@ export default class ContactForm extends LightningElement {
                     }),
                 );
             });
+            location.reload()
     }
 }
