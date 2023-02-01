@@ -1,0 +1,66 @@
+<template>
+
+    <template if:true={isShowContainer}>
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+
+                <!-- HEADER STARTS  -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeSearchContainer}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <template if:true={showContactDetail}>
+                        <h2 class="slds-text-heading_large slds-text-align_left">Contact Search!</h2>
+                    </template>
+
+                    <template if:true={showCreateNewAccount}>
+                        <h2 class="slds-text-heading_large slds-text-align_left">New Contact!</h2>
+                    </template>
+                    
+                </header>
+
+                <!-- BODY STARTS -->
+                <div class="slds-modal__content">
+                        <!-- CONTACTS TABLE -->
+                        <template if:true={showContactDetail}>
+                            <c-fetch-contacts accountid={accountid}></c-fetch-contacts>
+                        </template>
+
+                        <!-- NEW CONTACT FORM -->
+                        <template if:true={showCreateNewAccount}>
+                            <c-new-contact-container accountid={accountid}></c-new-contact-container>
+                        </template>
+                </div>
+
+                <!-- FOOTER STARTS -->
+                <footer class="slds-modal__footer">
+                    
+                    <div class="slds-float_left">
+                        <lightning-button label="Close" title="Close" onclick={closeSearchContainer}></lightning-button>
+                    </div>
+
+                    <!-- IF CONTACT DETAIL INFO IS SHOWN -->
+                    <template if:true={showContactDetail}>
+                        <div class="slds-float_right">
+                            <lightning-button label="Create New" title="Create New" variant="brand" onclick={showNewContactContainer}></lightning-button>
+                        </div>
+                    </template>
+
+                    <!-- IF CONTACT CREATION INFO IS SHOWN -->
+                    <template if:true={showCreateNewAccount}>
+                        <div class="slds-float_right">
+                            <lightning-button label="Contact information" title="Contact Information" variant="brand" onclick={showContactTable}></lightning-button>
+                        </div>
+                    </template>
+
+                </footer>
+
+            </div>
+        </section>
+
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+</template>

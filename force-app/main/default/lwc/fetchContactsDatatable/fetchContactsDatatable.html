@@ -1,0 +1,16 @@
+<template>
+    <template if:true={data}>
+        
+            <lightning-datatable
+                key-field="id"
+                data={data}
+                hide-checkbox-column="true"
+                columns={columns}
+                onrowaction={handleSearchedContact}
+                onloadmore={loadMoreData} enable-infinite-loading show-row-number-column>
+            </lightning-datatable>
+
+            received text: {selectedcontactid}
+
+    </template>
+</template>

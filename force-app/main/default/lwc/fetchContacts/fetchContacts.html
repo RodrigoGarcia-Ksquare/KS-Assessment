@@ -1,0 +1,23 @@
+<template>
+
+    <div>
+        <!-- CONTACTS SEARCH DATA -->
+        <c-contact-search-container accountid={accountid} ></c-contact-search-container>
+    </div>
+
+    <div class="slds-grid slds-wrap" style="max-height: 250px;">
+
+        <!-- CONTACTS DATA DISPLAY -->
+        <div class="slds-table_striped slds-table_bordered slds-table_col-bordered slds-size_6-of-8" style="height: 200px;">
+            <c-fetch-contacts-datatable accountid={accountid} selectedcontactid={selectedContactId} onsendcontid={handleSearchedContact}></c-fetch-contacts-datatable>
+        </div>
+
+        <!-- SELECTED CONTACT INFORMATION DISPLAY -->
+        <div class="slds-size_2-of-8">
+            <template if:true={displayinfo}>
+                <c-fetch-contacts-detail contactid={contactid}></c-fetch-contacts-detail>
+            </template>
+        </div>
+
+    </div>
+</template>

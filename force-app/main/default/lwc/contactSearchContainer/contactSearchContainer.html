@@ -1,0 +1,44 @@
+<template>
+    <div class="slds-grid slds-wrap">
+
+        <div class="slds-size_2-of-9 slds-p-top_large slds-p-right_medium">
+
+            <div class="slds-text-title_bold slds-text-align_center slds-p-top_xx-small  slds-text-align_left">
+                Contact Name
+            </div>
+    
+        </div>
+    
+        <div class="slds-size_3-of-8 slds-p-top_xx-small slds-combobox__form-element">
+
+            <div>
+                <lightning-input type="search" value={contactName}
+                                    onchange={keyChangeEvent}
+                                    onkeyup={enterEvent}
+                                    placeholder="search">
+                </lightning-input>
+
+                <template if:true={showContacts}>
+                    <div class="slds-box">
+                        <template for:each={data} for:item="contact">
+                            <div key={contact.Id}
+                                data-value={contact.Id}
+                                data-label={contact.Name}>
+                                {contact.Name}
+                            </div>
+                        </template>
+                    </div>
+                </template>
+
+            </div>
+
+        </div>
+
+        <div class="slds-col slds-size_1-of-8 slds-p-top_large slds-p-left_medium">
+            <lightning-button label="Search" size="small" 
+                        variant="brand" onclick={searchedContactEvent}>
+            </lightning-button>
+        </div>
+
+    </div>
+</template>
