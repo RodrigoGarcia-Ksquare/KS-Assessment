@@ -1,9 +1,10 @@
 <template>
 
-        <div class="slds-p-bottom_x-small">{name}</div>
-        <div class="slds-p-bottom_x-small">{phone}</div>
+        <a href={conurl}><img src={picture} alt="picture" style="width: 100px;"></a>
+        <div class="slds-p-bottom_x-small">Name: {name}</div>
+        <div class="slds-p-bottom_x-small">Phone number: {phone}</div>
         <div class="slds-p-bottom_x-small">
-            <lightning-formatted-email value={email} hide-icon></lightning-formatted-email>
+            Email: <lightning-formatted-email value={email} hide-icon></lightning-formatted-email>
         </div>
-
+        
 </template>
