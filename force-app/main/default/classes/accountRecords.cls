@@ -35,7 +35,7 @@ public with sharing class accountRecords {
             String accountName = accountInfo.Name;
             return accountName;
         } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
+            return null;
         }
     }
 
@@ -56,7 +56,7 @@ public with sharing class accountRecords {
         return Database.query(query);
 
         } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
+            return null;
         }
     }
 
